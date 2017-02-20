@@ -1,0 +1,21 @@
+{
+  "name": "e-gentle",
+  "productName": "Browser for e-hentai",
+  "version": "1.0.0",
+  "description": "Electron application for e-hentai based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "main": "./main.js",
+  "author": {
+    "name": "Birdyo Xia",
+    "email": "a9650615@gmail.com",
+    "url": "https://github.com/a9650615"
+  },
+  "dependencies": {
+    "axios": "^0.15.3",
+    "cheerio": "^0.22.0",
+    "material-ui": "^0.17.0",
+    "nedb": "^1.8.0",
+    "react-bootstrap": "^0.30.7",
+    "react-tap-event-plugin": "^2.0.1"
+  },
+  "devDependencies": {}
+}
