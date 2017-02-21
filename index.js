@@ -9,8 +9,8 @@ import routes from './routes';
 import configureStore from './store/configureStore';
 import './app.global.css';
 
-StoreLoader();
 injectTapEventPlugin();
+StoreLoader();
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);
 

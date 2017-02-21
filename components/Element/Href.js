@@ -15,12 +15,13 @@ class Href extends Component {
       style.textDecoration = 'none';
 
     return (
-      <a onClick={this._handlePageChange.bind(this, this.props.href)} 
+      <a 
+        onClick={this._handlePageChange.bind(this, this.props.href)} 
         href={this.props.href} 
         onTouchTap={this.props.onTouchTap}
         style={style}
       >
-          {this.props.children}
+        {this.props.children}
       </a>
     );
   }

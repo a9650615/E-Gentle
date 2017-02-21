@@ -373,7 +373,7 @@ loose-envify@^1.0.0:
   dependencies:
     js-tokens "^3.0.0"
 
-material-ui@^0.17.0:
+material-ui@0.17.0:
   version "0.17.0"
   resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-0.17.0.tgz#fd0e2e16f55184f66bc770225a053444e4ae7d33"
   dependencies:
@@ -434,6 +434,10 @@ object-keys@^1.0.6:
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.0.11.tgz#c54601778ad560f1142ce0e01bcca8b56d13426d"
 
+performance-now@^0.2.0, performance-now@~0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-0.2.0.tgz#33ef30c5c77d4ea21c5a53869d91b56d8f2555e5"
+
 private@~0.1.5:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.7.tgz#68ce5e8a1ef0a23bb570cc28537b5332aba63ef1"
@@ -447,6 +451,12 @@ promise@^7.1.1:
   resolved "https://registry.yarnpkg.com/promise/-/promise-7.1.1.tgz#489654c692616b8aa55b0724fa809bb7db49c5bf"
   dependencies:
     asap "~2.0.3"
+
+raf@^3.1.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/raf/-/raf-3.3.0.tgz#93845eeffc773f8129039f677f80a36044eee2c3"
+  dependencies:
+    performance-now "~0.2.0"
 
 react-addons-create-fragment@^15.0.0:
   version "15.4.2"
@@ -491,6 +501,13 @@ react-event-listener@^0.4.0:
     react-addons-shallow-compare "^15.4.2"
     warning "^3.0.0"
 
+react-motion@^0.4.4:
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/react-motion/-/react-motion-0.4.7.tgz#f77331ec7920bdb0d0cfc37eb6ffa10571bf42c7"
+  dependencies:
+    performance-now "^0.2.0"
+    raf "^3.1.0"
+
 react-overlays@^0.6.10:
   version "0.6.11"
   resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.6.11.tgz#30689e813b0e1a000f24baee0f8a4a318a1a4232"
@@ -499,6 +516,12 @@ react-overlays@^0.6.10:
     dom-helpers "^3.2.0"
     react-prop-types "^0.4.0"
     warning "^3.0.0"
+
+react-paper-ripple@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/react-paper-ripple/-/react-paper-ripple-0.2.1.tgz#cc4c56a88661effeb0e9fdf126dfc60f8b83794a"
+  dependencies:
+    react-motion "^0.4.4"
 
 react-prop-types@^0.4.0:
   version "0.4.0"

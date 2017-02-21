@@ -1,9 +1,7 @@
 .body{
-  width: 100vw;
-  height: 100%;
   background-image: linear-gradient(45deg, #FF80AB 10%, #7986CB);
-  top: 0;
-  position: relative;
+  background-attachment: fixed;
+  min-height: 100%;
 }
 
 .container {

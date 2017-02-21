@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Grid, Col } from 'react-bootstrap';
+import ComicElement from './ComicList/ComicElement';
 import styles from './Home.css';
 
 export default class Home extends Component {
@@ -25,16 +26,16 @@ export default class Home extends Component {
   _renderChild() {
     return this.state.lists.map((val) => {
       return val.map((data) => {
-        return (<div key={data.href}>{data.title}</div>);
+        return (<ComicElement comicData={data} />);
       })
     });
   }
 
   render() {
     return (
-      <div className={styles.body}>
-        {this._renderChild()}
-      </div>
+      <Grid className={styles.body} fluid>
+        <Col md={8} mdOffset={2}>{this._renderChild()}</Col>
+      </Grid>
     );
   }
 }
