@@ -8,7 +8,7 @@ class ComicElement extends Component {
   render() {
     let props = this.props.comicData;
     return (
-      <Href>
+      <Href href="/info">
         <Paper zDepth={1} key={props.href} className={styles.paperList}>
           <PaperRipple tag="div" color="#ccc">
             <div className={`${styles.listTitle} ${styles.listItem}`}>{props.title}</div>

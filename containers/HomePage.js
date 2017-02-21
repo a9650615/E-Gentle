@@ -4,7 +4,6 @@ import * as EhData from '../actions/EhData'
 import Home from '../components/Home';
 
 const mapStateToProps = (state, ownProps = {}) => {
-  console.log(state)
   return {
     ehDataReducer: state.ehDataReducer
   };

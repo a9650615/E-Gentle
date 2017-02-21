@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 import {browserHistory} from 'react-router';
+import { connect } from 'react-redux';
+import { push } from 'react-router-redux'
 
 class Href extends Component {
   _handlePageChange( page = '', e) {
     if (e.nativeEvent.which === 1) {
       e.nativeEvent.preventDefault();
-      browserHistory.push(page);
+      //browserHistory.push(page);
+      this.props.push(page);
     }
   }
 
@@ -27,4 +30,20 @@ class Href extends Component {
   }
 }
 
-export default Href;
+//export default Href;
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    routing: state.routing
+  }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    push: (path) => {
+      dispatch(push(path))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Href);

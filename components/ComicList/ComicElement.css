@@ -4,6 +4,9 @@
   position: relative;
 }
 
+.paperList:hover {
+  cursor: pointer;
+}
 
 .listTitle {
   font-size: 1.8rem;

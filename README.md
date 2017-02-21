@@ -2,7 +2,13 @@
 ===================
 此程式是基於 
 [electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate)
-開發, 將專案 clone 下來, 並將此專案放進 app 資料夾內
+開發, 將專案 clone 下來, 並將此專案放進 app 資料夾內 ( 不包含 E-Gentle 資料夾 )
+
+然後到達 `electron-react-boilerplate` 開發環境的 `webpack.config.base.js` 把 `externals: Object.keys(externals || {})` 
+註解 
+
+( 因為如果弄成外部載入 專案底下的 react-tap-event-plugin 讀取 react 會有問題 , 
+參考 [build-react-with-tap-event](https://github.com/swenyang/build-react-with-tap-event) )
 
 
 ----------

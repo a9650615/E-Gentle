@@ -5,6 +5,8 @@ import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import { Grid, Col } from 'react-bootstrap';
+import { menuDrawer } from '../constant/appConstant';
+import Href from './Element/Href';
 import styles from './TopBar.css';
 
 class TopBar extends Component {
@@ -20,21 +22,29 @@ class TopBar extends Component {
   _handleLeftIconTap() {
     this.setState({open: !this.state.open});
   }
+
+  _renderMenuItem() {
+    return menuDrawer.map((val) => {
+      return <Href key={val.id} href={val.path}><MenuItem>{val.name}</MenuItem></Href>
+    })
+  }
   
   render() {
     return (
       <Grid className={styles.topBar} fluid>
-        <Col md={8} mdOffset={2}>
+        <Col md={10} mdOffset={1}>
           <AppBar 
             title="E-紳士" 
-            iconElementLeft={<IconButton onClick={this._handleLeftIconTap}><NavigationMenu /></IconButton>}
+            iconElementLeft={<IconButton><NavigationMenu /></IconButton>}
             onLeftIconButtonTouchTap={this._handleLeftIconTap}
             zDepth={0}
           />
           <Drawer 
             open={this.state.open}
+            docked={false}
+            onRequestChange={open => this.setState({open: open})}
           >
-            <MenuItem onTouchTap={()=>console.log('sad')}>1234</MenuItem>
+            {this._renderMenuItem()}
           </Drawer>
         </Col>
       </Grid>

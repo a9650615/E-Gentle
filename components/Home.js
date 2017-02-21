@@ -34,7 +34,7 @@ export default class Home extends Component {
   render() {
     return (
       <Grid className={styles.body} fluid>
-        <Col md={8} mdOffset={2}>{this._renderChild()}</Col>
+        <Col md={10} mdOffset={1}>{this._renderChild()}</Col>
       </Grid>
     );
   }
