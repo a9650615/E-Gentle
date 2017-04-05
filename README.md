@@ -4,8 +4,8 @@
 [electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate)
 開發, 相關環境調整請參考那裏。
 
-~~然後到達 `electron-react-boilerplate` 開發環境的 `webpack.config.base.js` 把 `externals: Object.keys(externals || {})` 
-註解~~ ( 已直接調整專案, 不需要引入了 ) 
+然後到達 `electron-react-boilerplate` 開發環境的 `webpack.config.base.js` 把 `externals: Object.keys(externals || {})` 
+註解
 
 ( 因為如果弄成外部載入 專案底下的 react-tap-event-plugin 讀取 react 會有問題 , 
 參考 [build-react-with-tap-event](https://github.com/swenyang/build-react-with-tap-event) )
@@ -41,4 +41,4 @@ $ npm run dev
 
  1. Electron 程式主框架
  2. React
- 
+ 3. Redux
