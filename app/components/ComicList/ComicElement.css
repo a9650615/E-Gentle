@@ -1,0 +1,30 @@
+.paperList {
+  margin: 10px 0;
+  padding: 10px;
+  position: relative;
+}
+
+.paperList:hover {
+  cursor: pointer;
+}
+
+.listTitle {
+  font-size: 1.8rem;
+}
+
+.listItem {
+  padding: 3px;
+}
+
+.listItem, .listItem > *{
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.listItemInfo span{
+  padding: 2px 5px;
+}
+
+.listItemInfo i{
+  padding: 0 5px 0 0;
+}

@@ -1,0 +1,9 @@
+.view {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 60px);
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
