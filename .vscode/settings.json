@@ -1,4 +1,3 @@
 {
-    "vsicons.presets.angular": false,
-    "editor.tabSize": 2
+  "javascript.validate.enable": false
 }
