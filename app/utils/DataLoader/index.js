@@ -12,19 +12,27 @@ class DataLoader {
       .catch(reject)
     })
   }
-
-  getGalleryData(id = 0, token = '') {
+  /**
+   * Hentai API 取得詳細資料
+   * @param {Array} gallaryList [[gid, token],...] DON'T OVER 25
+   * @return {Array} {gmetadata}
+   * FIXME: 檢查更新成 array list foreach 輸入是否有錯誤
+   */
+  getGalleryData(gallaryList) {
     return new Promise((resolve, reject) => {
-      ApiFetcher.getGalleryData(id, token)
+      ApiFetcher.getGalleryData(gallaryList)
       .then((res) => {
-        let data = res.data.gmetadata[0], tags = {};
-        data.tags.forEach((data, i) => {
-          let arr = data.split(':');
-          if (!tags[arr[0]]) tags[arr[0]] = [];
-          tags[arr[0]].push(arr[1]);
+        let datas = res.data.gmetadata;
+        datas.forEach((data, i) => {
+          let tags = {};
+          data.tags.forEach((tag, i) => {
+            let arr = tag.split(':');
+            if (!tags[arr[0]]) tags[arr[0]] = [];
+            tags[arr[0]].push(arr[1]);
+          });
+          datas[i].tags = tags;
         });
-        data.tags = tags;
-        resolve(data)
+        resolve(datas)
       })
       .catch(reject)
     })

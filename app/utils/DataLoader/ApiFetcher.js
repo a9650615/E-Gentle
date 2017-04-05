@@ -2,12 +2,14 @@ import axios from 'axios';
 
 const EH_FRONTPAGE = 'https://e-hentai.org';
 const EX_FRONTPAGE = 'https://exhentai.org';
-const EH_API = 'https://e-hentai.org/api.php';
-const EX_API = 'https://exhentai.org/api.php';
+const EH_API = 'https://e-hentai.org/';
+const EX_API = 'https://exhentai.org/';
+export const API_HOST = EH_API;
+export const API_URL = API_HOST + 'api.php';
 
 class DataLoader {
   constructor() {
-    this.API_URL = EH_API;
+    this.API_URL = API_URL;
     this.FRONTPAGE_URL = EH_FRONTPAGE;
     this.CONFIG = {};
   }
@@ -22,8 +24,11 @@ class DataLoader {
       ...this.CONFIG
     })
   }
-
-  getGalleryData(id, token = '') {
+  /**
+   * Hentai API 取得詳細資料
+   * @param {Array} gallaryList [gid, token]
+   */
+  getGalleryData(gallaryList) {
     return axios({
       method: 'POST',
       url: `${this.API_URL}`,
@@ -34,7 +39,7 @@ class DataLoader {
       data: {
         'method': 'gdata',
         'gidlist': [
-            [id, token]
+            gallaryList
         ],
         'namespace': 1
       }
@@ -48,7 +53,7 @@ class DataLoader {
       ...this.CONFIG
     });
   }
-  
+
 }
 
 export default new DataLoader;

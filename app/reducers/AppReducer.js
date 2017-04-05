@@ -1,6 +1,8 @@
 import {
   APP_DATA,
-  APP_TAB
+  APP_TAB,
+  APP_LIST_DETAIL,
+  APP_LIST_DETAIL_FINISH
 } from '../actions/App';
 
 const INITIAL_STATE = { loading: false }

@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps = {}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    ehList: bindActionCreators(EhData.ehList, dispatch)
+    ehList: bindActionCreators(EhData.ehList, dispatch),
+    ehDetail: bindActionCreators(EhData.ehListDetail, dispatch)
   };
 }
 

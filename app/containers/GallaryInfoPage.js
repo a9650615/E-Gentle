@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 import GallaryInfo from '../components/GallaryInfo';
 
 const mapStatetToProps = (state, ownProps = []) => {
-  return state;
+  return {
+    GallaryInfo: state.ehDataReducer.detail
+  };
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {

@@ -11,10 +11,15 @@ export default class Home extends Component {
     }
   }
 
+  _loadDetail(preLoadData) {
+    let data = preLoadData.data;
+    this.props.ehDetail(data);
+  }
+
   componentWillMount() {
     this.props.ehList(0);
   }
-  
+
   componentWillReceiveProps(nextProps) {
     let lists = this.state.lists;
     if (nextProps.ehDataReducer.status === 'loaded') {
@@ -26,7 +31,7 @@ export default class Home extends Component {
   _renderChild() {
     return this.state.lists.map((val) => {
       return val.map((data) => {
-        return (<ComicElement comicData={data} />);
+        return (<ComicElement onTouchTap={this._loadDetail.bind(this, data)} comicData={data} />);
       })
     });
   }

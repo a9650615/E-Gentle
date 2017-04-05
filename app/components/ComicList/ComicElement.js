@@ -9,7 +9,7 @@ class ComicElement extends Component {
     let props = this.props.comicData;
     return (
       <Href href="/info">
-        <Paper zDepth={1} key={props.href} className={styles.paperList}>
+        <Paper zDepth={1} key={props.href} onTouchTap={this.props.onTouchTap} className={styles.paperList}>
           <PaperRipple tag="div" color="#ccc">
             <div className={`${styles.listTitle} ${styles.listItem}`}>{props.title}</div>
             <div className={`${styles.listItem} ${styles.listItemInfo}`}>
@@ -25,7 +25,8 @@ class ComicElement extends Component {
 }
 
 ComicElement.propTypes = {
-  comicData: React.PropTypes.object
+  comicData: React.PropTypes.object,
+  onTouchTap: React.PropTypes.func
 }
 
 export default ComicElement;

@@ -1,4 +1,7 @@
 import CheerIo from 'cheerio';
+import {
+  API_HOST
+} from './ApiFetcher';
 
 class HtmlParser {
   galleryList(parseData) {
@@ -16,6 +19,7 @@ class HtmlParser {
       }
       data[i].title = itdEq1.find('div>div.it5>a').text();
       data[i].href = itdEq1.find('div>div.it5>a').attr('href');
+      data[i].data = data[i].href.replace(`${API_HOST}g/`, '').split('/').splice(0, 2);
       data[i].torrent = itdEq1.find('>div>div.it3>div>a').attr('href');
       data[i].rank = itdEq1.find('div>div.it4>div.it4r').css('background-position');
       data[i].rank = data[i].rank.match(/[+\-]?\d*px/g);
@@ -27,9 +31,9 @@ class HtmlParser {
       data[i].uploader={
         href : t('td.itu>div>a').attr('href'),
         name : t('td.itu>div>a').text()
-      }; 
+      };
     });
-    
+
     return data;
   }
 
@@ -73,7 +77,7 @@ class HtmlParser {
     //   })
     // })
     //圖片列表
-    /*this.html.find('#gdt').children('.gdtm').each(function( i, e){ 
+    /*this.html.find('#gdt').children('.gdtm').each(function( i, e){
       let link = $(this).find('div a').attr('href');
       console.log(link)
     });*/
@@ -90,7 +94,7 @@ class HtmlParser {
       data.comment[i] = {};
       t = CheerIo.load(e);
       data.comment[i].User = t('.c3>a').text();
-      data.comment[i].log  = t('.c3').text(); 
+      data.comment[i].log  = t('.c3').text();
       data.comment[i].isupl = t('.c4').text()=='Uploader Comment'?true:false;
       data.comment[i].msg   = t('.c6').html();
     });

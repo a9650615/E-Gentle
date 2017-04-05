@@ -1,5 +1,5 @@
 export const APP_DATA = 'APP_DATA'
-export const APP_DATA_FINISH = 'APP_DATA_FINISH' 
+export const APP_DATA_FINISH = 'APP_DATA_FINISH'
 
 export const APP_TAB = 'APP_TAB'
 
