@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import type { Child } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import TopBar from '../components/TopBar';
@@ -8,6 +9,9 @@ import theme from '../constant/theme';
 const muiTheme = getMuiTheme(theme);
 
 export default class App extends Component {
+  props: {
+    children: Child
+  }
   render() {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
@@ -18,8 +22,4 @@ export default class App extends Component {
       </MuiThemeProvider>
     );
   }
-}
-
-App.propTypes = {
-  children: React.PropTypes.element.isRequired
 }

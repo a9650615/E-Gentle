@@ -4,6 +4,10 @@ import ComicElement from './ComicList/ComicElement';
 import styles from './Home.css';
 
 export default class Home extends Component {
+  props: {
+    ehList: () => void
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -31,7 +35,7 @@ export default class Home extends Component {
   _renderChild() {
     return this.state.lists.map((val) => {
       return val.map((data) => {
-        return (<ComicElement onTouchTap={this._loadDetail.bind(this, data)} comicData={data} />);
+        return (<ComicElement onClick={this._loadDetail.bind(this, data)} comicData={data} />);
       })
     });
   }
@@ -44,7 +48,3 @@ export default class Home extends Component {
     );
   }
 }
-
-Home.propTypes = {
-  ehList: React.PropTypes.func
-};

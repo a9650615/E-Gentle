@@ -20,8 +20,7 @@ class Href extends Component {
     return (
       <a 
         onClick={this._handlePageChange.bind(this, this.props.href)} 
-        href={this.props.href} 
-        onTouchTap={this.props.onTouchTap}
+        href={this.props.href}
         style={style}
       >
         {this.props.children}

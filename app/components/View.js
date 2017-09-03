@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import type { Children } from 'react'
 import style from './View.css';
 
 class View extends Component {

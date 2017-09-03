@@ -1,7 +1,11 @@
+//@ flow
 import React, { Component } from 'react';
 import { Grid } from 'react-bootstrap';
 
 export default class Container extends Component {
+  props: {
+    style: array
+  }
   render() {
     
     let styles = {
@@ -29,8 +33,4 @@ export default class Container extends Component {
     );
 
   }
-}
-
-Container.propTypes = {
-  style: React.PropTypes.array
 }
