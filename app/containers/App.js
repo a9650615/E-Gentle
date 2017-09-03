@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import type { Child } from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
 import TopBar from '../components/TopBar';
 import View from '../components/View';
 import theme from '../constant/theme';
 
-const muiTheme = getMuiTheme(theme);
+const muiTheme = createMuiTheme(theme)
 
 export default class App extends Component {
   props: {
@@ -14,7 +13,7 @@ export default class App extends Component {
   }
   render() {
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
+      <MuiThemeProvider theme={muiTheme}>
         <div style={{width: '100vw', height: '100vh'}}>
           <TopBar />
           <View>{this.props.children}</View>

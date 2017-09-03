@@ -1,3 +1,8 @@
 .topBar {
   background: #f44242;
 }
+
+.list {
+  width: 250;
+  flex: initial;
+}

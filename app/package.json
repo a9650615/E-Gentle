@@ -16,7 +16,8 @@
   "dependencies": {
     "axios": "^0.15.3",
     "cheerio": "^0.22.0",
-    "material-ui": "0.19.1",
+    "material-ui": "next",
+    "material-ui-icons": "^1.0.0-beta.5",
     "nedb": "^1.8.0",
     "react-bootstrap": "^0.30.7",
     "react-paper-ripple": "^0.2.1",

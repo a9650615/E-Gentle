@@ -1,6 +1,6 @@
 export default {
-  appBar: {
-    height: 60,
-    color: '#f44242'
-  }
+  // appBar: {
+  //   height: 60,
+  //   color: '#f44242'
+  // }
 }
