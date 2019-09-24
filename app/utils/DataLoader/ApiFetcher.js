@@ -5,7 +5,7 @@ const EX_FRONTPAGE = 'https://exhentai.org';
 const EH_API = 'https://e-hentai.org/';
 const EX_API = 'https://exhentai.org/';
 export const API_HOST = EH_API;
-export const API_URL = API_HOST + 'api.php';
+export const API_URL = `${API_HOST}api.php`;
 
 class DataLoader {
   constructor() {
@@ -19,10 +19,10 @@ class DataLoader {
       method: 'GET',
       url: `${this.FRONTPAGE_URL}`,
       params: {
-        page: page
+        page
       },
       ...this.CONFIG
-    })
+    });
   }
   /**
    * Hentai API 取得詳細資料
@@ -32,18 +32,18 @@ class DataLoader {
     return axios({
       method: 'POST',
       url: `${this.API_URL}`,
-      headers:{
+      headers: {
         'Content-type': 'text/json',
-        'Accept': 'application/jsonrequest'
+        Accept: 'application/jsonrequest'
       },
       data: {
-        'method': 'gdata',
-        'gidlist': [
-            gallaryList
+        method: 'gdata',
+        gidlist: [
+          gallaryList
         ],
-        'namespace': 1
+        namespace: 1
       }
-    })
+    });
   }
 
   getGalleryDetail(id, token = '') {
@@ -56,4 +56,4 @@ class DataLoader {
 
 }
 
-export default new DataLoader;
+export default new DataLoader();

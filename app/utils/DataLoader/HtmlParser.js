@@ -6,34 +6,42 @@ import {
 class HtmlParser {
   galleryList(parseData) {
     let $ = CheerIo.load(parseData), data = [];
-    $('tr.gtr0,tr.gtr1').each(function(i,e) {
-      //console.log(e);
-      let rank = 0, t = CheerIo.load(this), itdEq1 = t('td.itd').eq(1);
-      data[i] = {};
-      data[i].type= t('td.itdc>a>img').attr('alt');
-      data[i].publish = t('td.itd').first().text();
-      data[i].img = itdEq1.find('div>div.it2>img').attr('src');
-      if(i !== 0){
-        data[i].img = itdEq1.find('div>div.it2').text().split('~');
-        data[i].img = 'http://'+data[i].img[1]+'/'+data[i].img[2];
+    $('.gltc tr:not(:first-child)').each((i,e) => {
+      let gallaryData = {}, rank = 0, t = CheerIo.load(e), gl2c = t('.gl2c>div').eq(2).find('div');
+      // e-hentai 會有廣告導致空白問題
+      if (t('td.gl1c>div').html() == null) {
+        return;
       }
-      data[i].title = itdEq1.find('div>div.it5>a').text();
-      data[i].href = itdEq1.find('div>div.it5>a').attr('href');
-      data[i].data = data[i].href.replace(`${API_HOST}g/`, '').split('/').splice(0, 2);
-      data[i].torrent = itdEq1.find('>div>div.it3>div>a').attr('href');
-      data[i].rank = itdEq1.find('div>div.it4>div.it4r').css('background-position');
-      data[i].rank = data[i].rank.match(/[+\-]?\d*px/g);
-      if (data[i].rank[1]=='-21px') {
-        rank -= 0.5;
+      gallaryData = {};
+      gallaryData.type = t('td.gl1c>div').text();
+      gallaryData.publish = gl2c.eq(0).text();
+      // console.log(t('.gl2c>.glthumb').html())
+      gallaryData.img = t('.gl2c>.glthumb>div').eq(0).find('img').attr('src');
+      // //console.log(e);
+      if (i !== 0) {
+        gallaryData.img = t('.gl2c>.glthumb>div').eq(0).find('img').attr('data-src');
       }
-      rank+= 5 + (parseInt(data[i].rank[0])/16);
-      data[i].rank = rank;
-      data[i].uploader={
-        href : t('td.itu>div>a').attr('href'),
-        name : t('td.itu>div>a').text()
-      };
-    });
+      gallaryData.title = t('.gl3c>a>.glink').text();
+      gallaryData.href = t('.gl3c>a').attr('href');
+      // data[i].data = data[i].href.replace(`${API_HOST}g/`, '').split('/').splice(0, 2);
+      gallaryData.torrent = gl2c.eq(2).find('a').attr('href') || null;
 
+      if (gl2c.eq(1).length > 0) {
+        gallaryData.rank = gl2c.eq(1).css('background-position');
+        gallaryData.rank = gallaryData.rank.match(/[+\-]?\d*px/g);
+        if (gallaryData.rank[1] === '-21px') {
+          rank -= 0.5;
+        }
+        rank += 5 + (parseInt(gallaryData.rank[0])/16);
+        gallaryData.rank = rank;
+      }
+      gallaryData.uploader = {
+        href: t('.gl4c div').eq(0).find('a').attr('href'),
+        name: t('.gl4c div').eq(0).find('a').text()
+      };
+
+      data.push(gallaryData);
+    });
     return data;
   }
 
