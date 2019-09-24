@@ -21,7 +21,7 @@ class ComicInfo extends Component {
   }
 
   render() {
-    let info = this.state.info;
+    const info = this.state.info;
     return (
       <Container>
         <Paper className={styles.infoBlock}>
@@ -29,6 +29,7 @@ class ComicInfo extends Component {
             <h3>{info.title}</h3>
             <div>
               <div>
+                <img src={info.thumb} />
               </div>
               <div>
                 <div>{info.rating}</div>

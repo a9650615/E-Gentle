@@ -6,7 +6,13 @@ import {
   EH_LIST_DETAIL_FAILURE
 } from '../actions/EhData';
 
-const INITIAL_STATE = { loading: false, data: {}, page: 0, status: 'init' }
+const INITIAL_STATE = {
+  loading: false,
+  data: {},
+  page: 0,
+  status: 'init',
+  detail: {},
+};
 
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {

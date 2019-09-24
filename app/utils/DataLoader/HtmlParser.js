@@ -23,7 +23,7 @@ class HtmlParser {
       }
       gallaryData.title = t('.gl3c>a>.glink').text();
       gallaryData.href = t('.gl3c>a').attr('href');
-      // data[i].data = data[i].href.replace(`${API_HOST}g/`, '').split('/').splice(0, 2);
+      gallaryData.data = gallaryData.href.replace(`${API_HOST}g/`, '').split('/').splice(0, 2);
       gallaryData.torrent = gl2c.eq(2).find('a').attr('href') || null;
 
       if (gl2c.eq(1).length > 0) {
@@ -47,26 +47,27 @@ class HtmlParser {
 
   galleryDetail(parseData) {
     let $ = CheerIo.load(parseData), data = Object(), type;
-    //data.img = $('#gleft>#gd1>img').attr('src');
-    //data.title = $('#gd2>#gn').text();
+    // data.img = $('#gleft>#gd1>img').attr('src');
+    data.title = $('#gm>#gd2>gn').text();
+    data.jpTitle = $('#gm>#gd2>gj').text();
     //data.rank = $('#rating_label').text().replace('Average: ','')
-    data.rank_times = $('#rating_count').text()
+    data.rank_times = $('#rating_count').text();
     //data.type = $('#gdc>a>img').attr('alt');
     // 第一章圖片
     // $('.gdtm a').first().each(function(i,e){
     //   data.start = $(this).attr('href');
     // });
     data.information = Object();
-    $('#gdd tr').each(function( i, e){
-      type = $(this).find('.gdt1').text().replace(':','').replace(' ','_').toLowerCase();
-      if(type=='parent'){
-        data.information[type] = {};
-        data.information[type].text = $(this).find('.gdt2').text();
-        data.information[type].href = $(this).find('.gdt2 a').attr('href');
-      }
-      else
-        data.information[type] = $(this).find('.gdt2').text();
-    });
+    // $('#gdd tr').each(function( i, e){
+    //   type = $(this).find('.gdt1').text().replace(':','').replace(' ','_').toLowerCase();
+    //   if(type=='parent'){
+    //     data.information[type] = {};
+    //     data.information[type].text = $(this).find('.gdt2').text();
+    //     data.information[type].href = $(this).find('.gdt2 a').attr('href');
+    //   }
+    //   else
+    //     data.information[type] = $(this).find('.gdt2').text();
+    // });
     //標籤列表
     // data.tags = {};
     // $.find('#taglist tr').each( ( i, e) => {
